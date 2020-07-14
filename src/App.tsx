@@ -6,10 +6,10 @@ import { Rating } from './components/rating/Rating';
 function App(props:any) {
   return (
     <div className="App">
-      <AppTitle title={'Accordion title'}/>
+      <AppTitle title={'Rating App'}/>
       <Rating value={0}/>
-      <Accordion title={'Accordion1'} />
-      <Accordion title={'Accordion2'}/>
+      <Accordion title={'Menu'} collapsed={false}/>
+      <Accordion title={'Users'} collapsed={true}/>
       <Rating value={1}/>
       <Rating value={2}/>
       <Rating value={3}/>
@@ -18,10 +18,13 @@ function App(props:any) {
     </div>
   );
 }
+type AppTitleProps = {
+    title:string
+}
 
-const AppTitle = (props:any) => {
+const AppTitle:React.FC<AppTitleProps> = (props) => {
   return <>
-      <h3>{props.title}</h3>
+      <h2>{props.title}</h2>
   </>
 }
 

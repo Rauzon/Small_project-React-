@@ -1,6 +1,10 @@
 import React from "react";
 
-export const Rating = (props:any) => {
+type ratingPropsType = {
+    value:number
+}
+
+export const Rating:React.FC<ratingPropsType> = (props) => {
     if(props.value == 1) {return (<div className='rating__content'>
         <Star selected={true}/>
         <Star selected={false}/>
