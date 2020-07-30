@@ -4,3 +4,10 @@
 .rating__content span{
   margin-right: 5px;
 }
+.accordion__content_title,
+.rating__content_star{
+  display: inline-block;
+}
+.accordion__content_title button{
+  margin-left: 5px;
+}

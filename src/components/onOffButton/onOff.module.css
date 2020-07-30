@@ -1,0 +1,30 @@
+.button__content{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.button__content_on,
+.button__content_off{
+    width: 40px;
+    height: 25px;
+    background-color: green;
+    text-align: center;
+    margin-right: 5px;
+}
+.button__content_off{
+    background-color: red;
+}
+.button__content_switch{
+    margin-left: 5px;
+    width: 15px;
+    height: 15px;
+    background-color: green;
+    border-radius: 50px;
+
+}
+.active_div{
+    background-color: green;
+}
+.nonActive_div{
+    background-color: red;
+}

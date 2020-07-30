@@ -1,19 +1,31 @@
-import React from "react";
+import React, {useState} from "react";
 
 type accordionPropsType = {
-    title:string
-    collapsed:boolean
+    title: string
 }
 
-export const Accordion:React.FC<accordionPropsType> = (props) => {
+type accordionTitlePropsType = {
+    title: string
+    toggleCollapsed: () => void
+
+}
+
+export const Accordion: React.FC<accordionPropsType> = (props) => {
+
+    const [collapsed, setCollapsed] = useState<boolean>(false)
+
+    const toggleCollapsed = () => {
+        setCollapsed(!collapsed)
+    }
+
     return <div className='accordion__content'>
-        <AccordionTitle title={props.title}/>
-        {props.collapsed && <AccordionBody />}
+        <AccordionTitle title={props.title} toggleCollapsed={toggleCollapsed}/>
+        {!collapsed && <AccordionBody/>}
     </div>
 }
 
 
-const AccordionBody = (props:any) => {
+const AccordionBody = (props: any) => {
     return <>
         <ul>
             <li>1</li>
@@ -23,8 +35,10 @@ const AccordionBody = (props:any) => {
     </>
 }
 
-const AccordionTitle = (props:any) => {
-    return <>
-        <h3>{props.title}</h3>
-    </>
-}
+const
+    AccordionTitle: React.FC<accordionTitlePropsType> = (props) => {
+        return <div className='accordion__content_title'>
+            <h3 onClick={props.toggleCollapsed}>{props.title}</h3>
+
+        </div>
+    }
